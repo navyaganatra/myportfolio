@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navya Ganatra - Portfolio</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+ <style>
+        :root {
+            --bg-color: #FDF0EE;
+            --text-color: #1a1a1a;
+            --folder-blue: #82C3F6;
+            --accent-font: 'Playfair Display', serif;
+            --body-font: 'Lato', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            overflow-x: hidden; 
+        }
+
+    
+        h1, h2, h3, .display-text {
+            font-family: var(--accent-font);
+            font-style: italic;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        
+        .folder-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .folder-item {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: black;
+        }
+
+        .folder-item:hover {
+            transform: scale(1.1);
+        }
+
+        .folder-icon {
+            font-size: 3.5rem;
+            color: var(--folder-blue);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        }
+
+        .folder-label {
+            font-family: var(--accent-font);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .folder-nav {
+                display: none; 
+            }
+            .navbar {
+                background-color: var(--bg-color) !important;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        section {
+            min-height: 100vh; 
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+  
+        #home {
+            text-align: center;
+        }
+
+        .hero-main {
+            font-size: 3rem;
+        }
+        
+        .hero-sub {
+            font-size: 5rem;
+            font-weight: 400;
+        }
+
+    
+        .profile-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px; 
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+      
+        .work-card {
+            background: transparent;
+            border: none;
+            margin-bottom: 3rem;
+            transition: transform 0.3s;
+        }
+        
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-img-container {
+            overflow: hidden;
+            border: 1px solid #ddd;
+            background: white;
+            padding: 10px;
+        }
+
+        .work-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .work-title {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-family: var(--body-font);
+        }
+
+    
+        .project-detail-img {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: white;
+        }
+
+      
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        
+        .social-dock {
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            padding: 10px 20px;
+            border-radius: 16px;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-dock a {
+            color: white;
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        
+        .social-dock a:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+  
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top mobile-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#home" style="font-family: var(--accent-font);">NG Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#works">My Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="folder-nav">
+        <a href="#about" class="folder-item">
+            <i class="fas fa-folder folder-icon"></i>
+            <span class="folder-label">about me</span>
+        </a>
+        <a href="#works" class="folder-item">
+            <i class="fas fa-folder folder-icon"></i>
+            <span class="folder-label">my work</span>
+        </a>
+        <a href="#contact" class="folder-item">
+            <i class="fas fa-folder folder-icon"></i>
+            <span class="folder-label">contact me</span>
+        </a>
+        <a href="#home" class="folder-item mt-4">
+            <i class="fas fa-arrow-left" style="font-size: 1.5rem; background: #ddd; padding: 10px; border-radius: 50%;"></i>
+            <span class="folder-label">home</span>
+        </a>
+    </div>
+
+    
+    <section id="home">
+        <div class="container">
+            <p class="hero-main mb-0">welcome to</p>
+            <h1 class="hero-sub display-1">my portfolio</h1>
+        </div>
+    </section>
+
+  
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">about me</h2>
+            <div class="row align-items-center">
+               
+                <div class="col-md-5 mb-4 mb-md-0 text-center">
+                    
+                    <img src="images/about.png" alt="Navya Ganatra" width="500">
+                </div>
+                
+               
+                <div class="col-md-7">
+                    <p class="lead">
+                        I'm a Graphic Design student at ISDI, passionate about creating visual stories that balance concept and craft.
+                        My work explores the intersection of typography, layout, and storytelling — where design becomes both communication and emotion.
+                    </p>
+                    <p>
+                        I love experimenting with bold visuals, thoughtful details, and design systems that feel human yet refined.
+                    </p>
+                    
+                    <div class="mt-5">
+                        <h3 class="mb-3" style="font-size: 1.5rem;">skills</h3>
+                        <div class="d-flex align-items-center gap-2">
+                            
+                            <div class="d-flex gap-2">
+                                <span class="badge rounded p-2" style="background-color: #FF9A00; font-size: 1.2em;">Ai</span>
+                                <span class="badge rounded p-2" style="background-color: #31A8FF; font-size: 1.2em;">Ps</span>
+                                <span class="badge rounded p-2" style="background-color: #F24E1E; font-size: 1.2em;">Fi</span>
+                                <span class="badge rounded p-2" style="background-color: #00C4CC; font-size: 1.2em;">C</span>
+                            </div>
+                        </div>
+                        <p class="mt-3 small text-muted">
+                            Adobe Illustrator, Photoshop, Figma, Canva, Time Management, Collaboration, Leadership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="works">
+        <div class="container">
+            <h2 class="section-title mb-5">my works</h2>
+            
+            <div class="row">
+                
+                <div class="col-md-4">
+                    <div class="work-card">
+                        <a href="#project-1" class="text-decoration-none text-dark">
+                            <div class="work-img-container">
+                                <img src="images/work1.png" alt="Diwali Packaging" class="work-img">
+                            </div>
+                            <h4 class="work-title">JD's Diwali packaging</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="work-card">
+                        <a href="#project-2" class="text-decoration-none text-dark">
+                            <div class="work-img-container">
+                                <img src="images/work2.png" alt="Tea Packaging" class="work-img">
+                            </div>
+                            <h4 class="work-title">Sri Lankan Tea packaging</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="work-card">
+                        <a href="#project-3" class="text-decoration-none text-dark">
+                            <div class="work-img-container">
+                                <img src="images/work3.png" alt="Anatomy of Type" class="work-img">
+                            </div>
+                            <h4 class="work-title">Anatomy of Type Booklet</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-2" class="bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <img src="images/work2.png" alt="Tea Packaging Detail" class="project-detail-img">
+                </div>
+                <div class="col-lg-4">
+                    <h3>Ceylune Tea</h3>
+                    <p class="text-muted">Packaging Design</p>
+                    <hr>
+                    <p>
+                        This was a packaging I made for an imaginary tea company based in Sri Lanka. 
+                        It was inspired by a Rococo color palette and therefore uses pastel blues and pinks heavily.
+                    </p>
+                    <p>
+                        The font and illustrations are apt to a sweet blended balance between Sri Lankan culture and Rococo aesthetics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 order-2 order-lg-1">
+                    <h3>Diwali Edition</h3>
+                    <p class="text-muted">Packaging & Branding</p>
+                    <hr>
+                    <p>
+                        This packaging was made for JD's Old No.7 for the Diwali season. 
+                        It resembles the back of a playing card, as playing cards are a tradition for Diwali parties.
+                    </p>
+                    <p>
+                        I used black, gold, and white to stay consistent with the brand while adding festive luxury.
+                    </p>
+                </div>
+                <div class="col-lg-8 order-1 order-lg-2 mb-4 mb-lg-0">
+                    <img src="images/work1.png" alt="Diwali Packaging Detail" class="project-detail-img bg-dark">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-3" class="bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                     <img src="images/work3.png" alt="Booklet Mockup" style="max-width:100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+                <div class="col-lg-6">
+                    <h3>Anatomy of Type</h3>
+                    <p class="text-muted">Editorial Design</p>
+                    <hr>
+                    <p>
+                        This is a mockup of a typography booklet I designed. It talks about a few fonts, their applications, and has interactive activities to practice typography basics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="min-height: 60vh; flex-direction: column;">
+        <div class="container text-center">
+            <h1 class="display-1 mb-4" style="font-family: var(--accent-font);">thank you</h1>
+            
+            <div class="social-dock">
+                <a href="mailto:navyaganatra2740@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Behance"><i class="fab fa-behance"></i></a>
+            </div>
+
+            <div class="mt-5 small text-muted">
+                <p>navyaganatra2740@gmail.com &bull; +91 9599542058</p>
+                <p>© 2025 Navya Ganatra. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
